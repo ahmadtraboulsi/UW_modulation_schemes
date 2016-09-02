@@ -1,0 +1,37 @@
+READ ALL OF THIS FILE BEFORE YOU START ANY SIMULATION
+
+GNU Radio, MATLAB and the BELLHOP software need to be installed
+Gr-Spread Module need to be install in GNU Radio for FH-CPFSK.
+
+
+1-Put your arrival files is the same directory as this note is in.
+2-open pskProcessing.m in MATLAB
+3- call pskProcessing as follow:
+
+pskProcessing(5,540,'BPSK')
+
+where 5 is the number of arrival files you have
+540 is the record time of the wav file of BPSK which should be in the same directory as this one.
+
+A .wav file of a certain modulation techniques should be placed in the same directory as pskProcessing.
+
+To generate a wav file or a certain modulation techniques run its sender python file and copy the output file that was generated and paste it to the same directory as this one.
+
+The option to be used as input for pskProcessing for each modulated technique is as follow:
+
+FSK use ‘GFSK’ as input for pskProcessing
+FH-CPFSK  use ‘FH-FSK’ as input for pskProcessing
+OFDM use ‘OFDM’ as input for pskProcessing
+BPSK use ‘BPSK’ as input for pskProcessing
+
+
+you may have to change the name of the impulseResponse in pskProcessing.m
+
+(OPTIONAL) In pskProcessing change the variable direct to match the modulation techniques and symbol time to be used.
+
+AFTER all wav files have been generated into several directories, copy and paste the required files from the modulation scheme folder into the directory of the variable direct in pskProcessing.
+
+After all the above is done, run GNU.sh shell script. (some parameters inside the script might need to be adjusted like number of files etc.)
+
+NOTE: MEANBER helps calculate the mean Bit Error Rate from several folders.
+
