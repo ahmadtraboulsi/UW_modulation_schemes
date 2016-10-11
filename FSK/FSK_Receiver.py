@@ -49,7 +49,7 @@ class FSK_Receiver(gr.top_block):
                 taps=None,
                 fractional_bw=None,
         )
-        self.freq_xlating_fir_filter_xxx_0_0_0 = filter.freq_xlating_fir_filter_ccc(1, (filter.firdes.low_pass(1, samp_rate*10, sideband_rx,1000)), carrier, samp_rate)
+        self.freq_xlating_fir_filter_xxx_0_0_0 = filter.freq_xlating_fir_filter_ccc(1, (filter.firdes.low_pass(1, samp_rate, carrier+sideband_rx,1000)), carrier, samp_rate)
         self.digital_gfsk_demod_0 = digital.gfsk_demod(
         	samples_per_symbol=sps,
         	sensitivity=1.0,
