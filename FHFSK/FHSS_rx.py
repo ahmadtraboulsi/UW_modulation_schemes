@@ -45,7 +45,7 @@ class FHSS_rx(gr.top_block):
                 taps=None,
                 fractional_bw=None,
         )
-        self.freq_xlating_fir_filter_xxx_0_0_0 = filter.freq_xlating_fir_filter_ccc(1, (filter.firdes.low_pass(1, samp_rate*4, sideband_rx,1000)), carrier, samp_rate*4)
+        self.freq_xlating_fir_filter_xxx_0_0_0 = filter.freq_xlating_fir_filter_ccc(1, (filter.firdes.low_pass(1, samp_rate*4, carrier+sideband_rx,1000)), carrier, samp_rate*4)
 
         script, inputwav, outputBinary= argv
         self.blocks_wavfile_source_0_1 = blocks.wavfile_source(inputwav, False)

@@ -53,7 +53,7 @@ class BPSK_ReceiverPOLY(gr.top_block):
                 taps=(rrc_taps),
                 fractional_bw=None,
         )
-        self.freq_xlating_fir_filter_xxx_0_0 = filter.freq_xlating_fir_filter_ccc(1, (filter.firdes.low_pass(1, samp_rate*10, sideband_rx,1000)), carrier, samp_rate)
+        self.freq_xlating_fir_filter_xxx_0_0 = filter.freq_xlating_fir_filter_ccc(1, (filter.firdes.low_pass(1, samp_rate, carrier+sideband_rx,1000)), carrier, samp_rate)
         self.digital_pfb_clock_sync_xxx_0 = digital.pfb_clock_sync_ccf(sps, timing_loop_bw, (rrc_taps), nfilts*2, nfilts/2, 1.5, 1)
         self.digital_diff_decoder_bb_0 = digital.diff_decoder_bb(2)
         self.digital_constellation_decoder_cb_0 = digital.constellation_decoder_cb(constel)
