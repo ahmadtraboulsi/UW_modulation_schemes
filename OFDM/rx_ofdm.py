@@ -232,7 +232,7 @@ class rx_ofdm(gr.top_block):
 
     def set_sideband_rx(self, sideband_rx):
         self.sideband_rx = sideband_rx
-        self.freq_xlating_fir_filter_xxx_0_0.set_taps((filter.firdes.low_pass(1, self.samp_rate, self.sideband_rx,1000)))
+        self.freq_xlating_fir_filter_xxx_0_0.set_taps((filter.firdes.low_pass(1, self.samp_rate, carrier+ self.sideband_rx,1000)))
 
     def get_sideband(self):
         return self.sideband
@@ -246,7 +246,7 @@ class rx_ofdm(gr.top_block):
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
         self.blocks_throttle_0.set_sample_rate(self.samp_rate)
-        self.freq_xlating_fir_filter_xxx_0_0.set_taps((filter.firdes.low_pass(1, self.samp_rate, self.sideband_rx,1000)))
+        self.freq_xlating_fir_filter_xxx_0_0.set_taps((filter.firdes.low_pass(1, self.samp_rate, carrier+self.sideband_rx,1000)))
         self.blocks_throttle_0_0.set_sample_rate(self.samp_rate)
 
     def get_payload_equalizer(self):
